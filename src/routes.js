@@ -18,11 +18,24 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
   />
 );
 
+const UnauthorizedRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Redirect to={{ pathname: "/Home", state: { from: props.location } }} />
+      ) : (
+        <Component {...props} />
+      )
+    }
+  />
+);
+
 const Routes = () => (
   <BrowserRouter>
     <Route render={(props)=>(
       <Switch>
-          <Route exact path="/" component={SignIn} />
+          <UnauthorizedRoute exact path="/" component={SignIn} />
           <PrivateRoute path="/Home" component={Home} />
           <Route path="*" component={() => <h1>Page not found</h1>} />
         </Switch>

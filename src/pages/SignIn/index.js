@@ -21,7 +21,7 @@ class SignIn extends Component {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
       try {
-        const response = await api.post("/Login", null,{ params: {login, senha } });
+        const response = await api.post("/Login/Farmacia", null,{ params: {login, senha } });
         signin(response.data.token);
         this.props.history.push("/Home");
       } catch (err) {
@@ -44,6 +44,7 @@ class SignIn extends Component {
       <Container>
         <Form onSubmit={this.handleSignIn}>
         <h1>FarmApp</h1>
+        <p2>Login da Farmácia</p2>
           {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"

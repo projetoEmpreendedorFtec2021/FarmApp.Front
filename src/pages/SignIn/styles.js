@@ -33,6 +33,13 @@ export const Form = styled.form`
     width: 100%;
     text-align: center;
   }
+  p2 {
+    color: #52a2d1;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
   input {
     display: flex;
     height: 46px;

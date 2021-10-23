@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available Scripts - analuiza.bohrer@icloud.com - 12345678
 
 In the project directory, you can run:
 
