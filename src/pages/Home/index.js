@@ -5,11 +5,34 @@ import { logout } from "../../services/auth";
 import { Form, Container } from "./styles";
 
 class Home extends Component {
-  state = {
-    click: false
+
+  handleProdWith = async e => {
+    e.preventDefault();
+
+    try {
+      this.props.history.push("/ProductsWith");
+    } catch (err) {
+      this.setState({
+        error:
+          "Houve um problema, tente novamente mais tarde."
+      });
+    }
   };
 
-  handleSignIn = async e => {
+  handleProdWithout = async e => {
+    e.preventDefault();
+
+    try {
+      this.props.history.push("/ProductsWithout");
+    } catch (err) {
+      this.setState({
+        error:
+          "Houve um problema, tente novamente mais tarde."
+      });
+    }
+  };
+  
+  handleLogout = async e => {
     e.preventDefault();
 
     try {
@@ -18,24 +41,25 @@ class Home extends Component {
     } catch (err) {
       this.setState({
         error:
-          "Houve um problema com o logout, tente novamente mais tarde."
+          "Houve um problema, tente novamente mais tarde."
       });
     }
   };
 
-  changeColor(){
-    this.setState({click: !this.state.click})
-  }
-
   render() {
-    let btn_class = this.state.click ? "btn_click" : "btn_unlick";
 
     return (
       <Container>
-        <Form onSubmit={this.handleSignIn}>
+        <Form>
         <h1>FarmApp</h1>
         <p>Bem vindo Farmácia</p>
-        <button type="submit" className={btn_class} onClick={this.changeColor.bind(this)}>
+        <button type="submit"  onClick={this.handleProdWith}>
+            Produtos com receita
+        </button>
+        <button type="submit"  onClick={this.handleProdWithout}>
+          Produtos sem receita
+        </button>
+        <button type="submit" onClick={this.handleLogout}>
             Logout
         </button>
         </Form>
