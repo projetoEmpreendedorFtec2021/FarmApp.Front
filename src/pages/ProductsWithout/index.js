@@ -32,6 +32,24 @@ class ProductsWithout extends Component {
       }
   }
 
+  handleRefresh = async e => {
+    const { IdContaFarmacia, IdTipoProduto, Busca } = this.state;
+    
+      try {
+        const response = await api.get("/ItemFarmacia", { params: {IdContaFarmacia, IdTipoProduto, Busca} });
+
+        this.setState({
+          items: response.data
+              });
+      } catch (err) {
+        this.setState({
+          error:
+            "Houve um problema, tente novamente mais tarde."
+        });
+      }
+    
+  };
+
   handleFind = async e => {
     e.preventDefault();
     const { IdContaFarmacia, IdTipoProduto, Busca } = this.state;

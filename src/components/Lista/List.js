@@ -17,6 +17,7 @@ const List = (props) => {
           idProdutoMarca={item.produtoMarca.idProdutoMarca}
           title={item.produtoMarca.descricao}
           amount={item.preco}
+          handleRefresh={props.handleRefresh}
         />
       ))}
     </ul>

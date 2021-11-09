@@ -9,7 +9,7 @@ const Box = (props) => {
   return (
     <div>
       <Card className='box'>
-        <List items={props.items} />
+        <List items={props.items} handleRefresh={props.handleRefresh} />
       </Card>
     </div>
   );

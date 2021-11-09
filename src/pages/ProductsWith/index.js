@@ -33,7 +33,6 @@ class ProductsWith extends Component {
   }
 
   handleRefresh = async e => {
-    e.preventDefault();
     const { IdContaFarmacia, IdTipoProduto, Busca } = this.state;
     
       try {
@@ -134,7 +133,7 @@ class ProductsWith extends Component {
             onChange={e => this.setState({ Busca: e.target.value })}
         />
         </Form>
-        <Box items={items} />
+        <Box items={items} handleRefresh={this.handleRefresh}/>
       </Container>
     );
   }
