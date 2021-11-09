@@ -10,7 +10,7 @@ class ProductsWithout extends Component {
 
   
   state = {
-    IdContaFarmacia: localStorage.getItem("USER_ID"),
+    IdContaFarmacia: Number(localStorage.getItem("@farmapp-userid")),
     IdTipoProduto: "2",
     items: [],
     Busca: ""
@@ -135,7 +135,7 @@ class ProductsWithout extends Component {
             onChange={e => this.setState({ Busca: e.target.value })}
         />
         </Form>
-        <Box items={items}/>
+        <Box items={items} handleRefresh={this.handleRefresh}/>
       </Container>
     );
   }
