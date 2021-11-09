@@ -2,6 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import Home from "./pages/Home";
+import ProductsWith from "./pages/ProductsWith";
+import ProductsWithout from "./pages/ProductsWithout";
+
 
 import { isAuthenticated } from "./services/auth";
 
@@ -37,6 +40,8 @@ const Routes = () => (
       <Switch>
           <UnauthorizedRoute exact path="/" component={SignIn} />
           <PrivateRoute path="/Home" component={Home} />
+          <PrivateRoute path="/ProductsWith" component={ProductsWith} />
+          <PrivateRoute path="/ProductsWithout" component={ProductsWithout} />
           <Route path="*" component={() => <h1>Page not found</h1>} />
         </Switch>
       )}/>

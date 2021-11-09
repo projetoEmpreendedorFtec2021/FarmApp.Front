@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "./auth";
+import { getToken} from "./auth";
 
 const api = axios.create({
   baseURL: "https://farmappapi.herokuapp.com/api"
